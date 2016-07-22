@@ -7,25 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC7A92D71D1A6972009A29A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A92D61D1A6972009A29A4 /* main.m */; };
-		EC7A92DA1D1A6972009A29A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A92D91D1A6972009A29A4 /* AppDelegate.m */; };
-		EC7A92DD1D1A6972009A29A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A92DC1D1A6972009A29A4 /* ViewController.m */; };
-		EC7A92E01D1A6972009A29A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7A92DE1D1A6972009A29A4 /* Main.storyboard */; };
+		CABB11696F6229607ECFDA5B /* libPods-ParallelWorld.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 908839083F19F0D1BF91C8B2 /* libPods-ParallelWorld.a */; };
+		EC0413571D20CBAE00440A78 /* WKWebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0413561D20CBAE00440A78 /* WKWebViewTest.m */; };
+		EC3A190E1D41FF4800F6F193 /* PUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3A190D1D41FF4800F6F193 /* PUtils.m */; };
+		EC3A19141D42028500F6F193 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3A19131D42028500F6F193 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EC3A19181D4203D700F6F193 /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3A19171D4203D700F6F193 /* VPImageCropperViewController.m */; };
+		EC3A191F1D42122800F6F193 /* PWBaseForm.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3A191E1D42122800F6F193 /* PWBaseForm.m */; };
+		EC410F0D1D1D1A2800D5A27B /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC410F0C1D1D1A2800D5A27B /* SnowView.m */; };
+		EC410F0F1D1D1DCF00D5A27B /* SnowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC410F0E1D1D1DCF00D5A27B /* SnowView.xib */; };
+		EC7761931D2262C000E1A89F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761921D2262C000E1A89F /* CoreText.framework */; };
+		EC7761951D2262D700E1A89F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761941D2262D700E1A89F /* AudioToolbox.framework */; };
+		EC7761971D2262E300E1A89F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761961D2262E300E1A89F /* CFNetwork.framework */; };
+		EC7761991D22630E00E1A89F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761981D22630E00E1A89F /* CoreGraphics.framework */; };
+		EC77619B1D22638000E1A89F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC77619A1D22638000E1A89F /* CoreLocation.framework */; };
+		EC77619D1D22638800E1A89F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC77619C1D22638800E1A89F /* CoreMedia.framework */; };
+		EC77619F1D22639300E1A89F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC77619E1D22639300E1A89F /* CoreMotion.framework */; };
+		EC7761A11D2263AB00E1A89F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761A01D2263AB00E1A89F /* CoreVideo.framework */; };
+		EC7761A31D2263D700E1A89F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761A21D2263D700E1A89F /* iAd.framework */; };
+		EC7761A51D2263DE00E1A89F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761A41D2263DE00E1A89F /* MediaPlayer.framework */; };
+		EC7761A71D2263E500E1A89F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761A61D2263E500E1A89F /* OpenAL.framework */; };
+		EC7761A91D22642B00E1A89F /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761A81D22642B00E1A89F /* libiconv.2.tbd */; };
+		EC7761AB1D22643700E1A89F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761AA1D22643700E1A89F /* OpenGLES.framework */; };
+		EC7761AD1D22644B00E1A89F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7761AC1D22644B00E1A89F /* QuartzCore.framework */; };
+		EC77A7651D3DF8E20042FA2E /* PWNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77A7641D3DF8E20042FA2E /* PWNetworkManager.m */; };
+		EC77A76B1D3DFB7D0042FA2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC77A7661D3DFB7D0042FA2E /* main.m */; };
 		EC7A92E21D1A6972009A29A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7A92E11D1A6972009A29A4 /* Assets.xcassets */; };
-		EC7A92E51D1A6972009A29A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7A92E31D1A6972009A29A4 /* LaunchScreen.storyboard */; };
+		EC7A92ED1D1A78C7009A29A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7A92EC1D1A78C7009A29A4 /* AVFoundation.framework */; };
+		EC7A931F1D1A82EF009A29A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7A931B1D1A82EF009A29A4 /* LaunchScreen.storyboard */; };
+		EC7A93201D1A82EF009A29A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7A931D1D1A82EF009A29A4 /* Main.storyboard */; };
+		EC7A93361D1A83FA009A29A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A932B1D1A83FA009A29A4 /* AppDelegate.m */; };
+		EC7A93371D1A83FA009A29A4 /* PWBaseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A932E1D1A83FA009A29A4 /* PWBaseDataManager.m */; };
+		EC7A93381D1A83FA009A29A4 /* PWLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A93301D1A83FA009A29A4 /* PWLoginManager.m */; };
+		EC7A933D1D1A841C009A29A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A933C1D1A841C009A29A4 /* ViewController.m */; };
+		EC7A93411D1A8B0F009A29A4 /* LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A93401D1A8B0F009A29A4 /* LineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6EE6C6D9C3F07353A89D2FFC /* Pods-ParallelWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParallelWorld.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParallelWorld/Pods-ParallelWorld.release.xcconfig"; sourceTree = "<group>"; };
+		908839083F19F0D1BF91C8B2 /* libPods-ParallelWorld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParallelWorld.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		913A463AEB911B3FC128584A /* Pods-ParallelWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParallelWorld.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParallelWorld/Pods-ParallelWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		EC0413551D20CBAE00440A78 /* WKWebViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewTest.h; sourceTree = "<group>"; };
+		EC0413561D20CBAE00440A78 /* WKWebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewTest.m; sourceTree = "<group>"; };
+		EC3A190C1D41FF4800F6F193 /* PUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUtils.h; sourceTree = "<group>"; };
+		EC3A190D1D41FF4800F6F193 /* PUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUtils.m; sourceTree = "<group>"; };
+		EC3A19121D42028500F6F193 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		EC3A19131D42028500F6F193 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		EC3A19161D4203D700F6F193 /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
+		EC3A19171D4203D700F6F193 /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		EC3A191C1D42120E00F6F193 /* PWForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWForm.h; sourceTree = "<group>"; };
+		EC3A191D1D42122800F6F193 /* PWBaseForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWBaseForm.h; sourceTree = "<group>"; };
+		EC3A191E1D42122800F6F193 /* PWBaseForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWBaseForm.m; sourceTree = "<group>"; };
+		EC410F0B1D1D1A2800D5A27B /* SnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowView.h; sourceTree = "<group>"; };
+		EC410F0C1D1D1A2800D5A27B /* SnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnowView.m; sourceTree = "<group>"; };
+		EC410F0E1D1D1DCF00D5A27B /* SnowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnowView.xib; sourceTree = "<group>"; };
+		EC7761921D2262C000E1A89F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EC7761941D2262D700E1A89F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EC7761961D2262E300E1A89F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EC7761981D22630E00E1A89F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EC77619A1D22638000E1A89F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EC77619C1D22638800E1A89F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EC77619E1D22639300E1A89F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		EC7761A01D2263AB00E1A89F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		EC7761A21D2263D700E1A89F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		EC7761A41D2263DE00E1A89F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		EC7761A61D2263E500E1A89F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		EC7761A81D22642B00E1A89F /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		EC7761AA1D22643700E1A89F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		EC7761AC1D22644B00E1A89F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EC77A7631D3DF8E20042FA2E /* PWNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWNetworkManager.h; sourceTree = "<group>"; };
+		EC77A7641D3DF8E20042FA2E /* PWNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWNetworkManager.m; sourceTree = "<group>"; };
+		EC77A7661D3DFB7D0042FA2E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ParallelWorld/main.m; sourceTree = SOURCE_ROOT; };
+		EC77A7671D3DFB7D0042FA2E /* PWDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PWDefinition.h; path = ParallelWorld/PWDefinition.h; sourceTree = SOURCE_ROOT; };
+		EC77A7681D3DFB7D0042FA2E /* PWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PWMacros.h; path = ParallelWorld/PWMacros.h; sourceTree = SOURCE_ROOT; };
+		EC77A7691D3DFB7D0042FA2E /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = ParallelWorld/Prefix.pch; sourceTree = SOURCE_ROOT; };
+		EC77A76A1D3DFB7D0042FA2E /* PWValueType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PWValueType.h; path = ParallelWorld/PWValueType.h; sourceTree = SOURCE_ROOT; };
 		EC7A92D21D1A6972009A29A4 /* ParallelWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParallelWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC7A92D61D1A6972009A29A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EC7A92D81D1A6972009A29A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EC7A92D91D1A6972009A29A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EC7A92DB1D1A6972009A29A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EC7A92DC1D1A6972009A29A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EC7A92DF1D1A6972009A29A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC7A92E11D1A6972009A29A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC7A92E41D1A6972009A29A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC7A92E61D1A6972009A29A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7A92E61D1A6972009A29A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		EC7A92EC1D1A78C7009A29A4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EC7A931C1D1A82EF009A29A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC7A931E1D1A82EF009A29A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		EC7A932A1D1A83FA009A29A4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC7A932B1D1A83FA009A29A4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC7A932D1D1A83FA009A29A4 /* PWBaseDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWBaseDataManager.h; sourceTree = "<group>"; };
+		EC7A932E1D1A83FA009A29A4 /* PWBaseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWBaseDataManager.m; sourceTree = "<group>"; };
+		EC7A932F1D1A83FA009A29A4 /* PWLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWLoginManager.h; sourceTree = "<group>"; };
+		EC7A93301D1A83FA009A29A4 /* PWLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWLoginManager.m; sourceTree = "<group>"; };
+		EC7A933B1D1A841C009A29A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EC7A933C1D1A841C009A29A4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EC7A933F1D1A8B0F009A29A4 /* LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineView.h; sourceTree = "<group>"; };
+		EC7A93401D1A8B0F009A29A4 /* LineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +104,115 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7761AD1D22644B00E1A89F /* QuartzCore.framework in Frameworks */,
+				EC7761AB1D22643700E1A89F /* OpenGLES.framework in Frameworks */,
+				EC7761A91D22642B00E1A89F /* libiconv.2.tbd in Frameworks */,
+				EC7761A71D2263E500E1A89F /* OpenAL.framework in Frameworks */,
+				EC7761A51D2263DE00E1A89F /* MediaPlayer.framework in Frameworks */,
+				EC7761A31D2263D700E1A89F /* iAd.framework in Frameworks */,
+				EC7761A11D2263AB00E1A89F /* CoreVideo.framework in Frameworks */,
+				EC77619F1D22639300E1A89F /* CoreMotion.framework in Frameworks */,
+				EC77619D1D22638800E1A89F /* CoreMedia.framework in Frameworks */,
+				EC77619B1D22638000E1A89F /* CoreLocation.framework in Frameworks */,
+				EC7761991D22630E00E1A89F /* CoreGraphics.framework in Frameworks */,
+				EC7761971D2262E300E1A89F /* CFNetwork.framework in Frameworks */,
+				EC7761951D2262D700E1A89F /* AudioToolbox.framework in Frameworks */,
+				EC7761931D2262C000E1A89F /* CoreText.framework in Frameworks */,
+				EC7A92ED1D1A78C7009A29A4 /* AVFoundation.framework in Frameworks */,
+				CABB11696F6229607ECFDA5B /* libPods-ParallelWorld.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83A75007FE0ED413B164DA9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				913A463AEB911B3FC128584A /* Pods-ParallelWorld.debug.xcconfig */,
+				6EE6C6D9C3F07353A89D2FFC /* Pods-ParallelWorld.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D5D8CFC2D77CC2C2F60A556D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC7761AC1D22644B00E1A89F /* QuartzCore.framework */,
+				EC7761AA1D22643700E1A89F /* OpenGLES.framework */,
+				EC7761A81D22642B00E1A89F /* libiconv.2.tbd */,
+				EC7761A61D2263E500E1A89F /* OpenAL.framework */,
+				EC7761A41D2263DE00E1A89F /* MediaPlayer.framework */,
+				EC7761A21D2263D700E1A89F /* iAd.framework */,
+				EC7761A01D2263AB00E1A89F /* CoreVideo.framework */,
+				EC77619E1D22639300E1A89F /* CoreMotion.framework */,
+				EC77619C1D22638800E1A89F /* CoreMedia.framework */,
+				EC77619A1D22638000E1A89F /* CoreLocation.framework */,
+				EC7761981D22630E00E1A89F /* CoreGraphics.framework */,
+				EC7761961D2262E300E1A89F /* CFNetwork.framework */,
+				EC7761941D2262D700E1A89F /* AudioToolbox.framework */,
+				EC7761921D2262C000E1A89F /* CoreText.framework */,
+				EC7A92EC1D1A78C7009A29A4 /* AVFoundation.framework */,
+				908839083F19F0D1BF91C8B2 /* libPods-ParallelWorld.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC0413501D20CB0200440A78 /* CGText */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A933F1D1A8B0F009A29A4 /* LineView.h */,
+				EC7A93401D1A8B0F009A29A4 /* LineView.m */,
+				EC410F0B1D1D1A2800D5A27B /* SnowView.h */,
+				EC410F0C1D1D1A2800D5A27B /* SnowView.m */,
+				EC410F0E1D1D1DCF00D5A27B /* SnowView.xib */,
+			);
+			name = CGText;
+			sourceTree = "<group>";
+		};
+		EC0413511D20CB2400440A78 /* WebViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				EC0413551D20CBAE00440A78 /* WKWebViewTest.h */,
+				EC0413561D20CBAE00440A78 /* WKWebViewTest.m */,
+			);
+			name = WebViewTest;
+			sourceTree = "<group>";
+		};
+		EC3A19101D42028500F6F193 /* ThirdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A19151D4203D700F6F193 /* VPImageCropper */,
+				EC3A19111D42028500F6F193 /* RegexKit */,
+			);
+			path = ThirdSDK;
+			sourceTree = "<group>";
+		};
+		EC3A19111D42028500F6F193 /* RegexKit */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A19121D42028500F6F193 /* RegexKitLite.h */,
+				EC3A19131D42028500F6F193 /* RegexKitLite.m */,
+			);
+			path = RegexKit;
+			sourceTree = "<group>";
+		};
+		EC3A19151D4203D700F6F193 /* VPImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A19161D4203D700F6F193 /* VPImageCropperViewController.h */,
+				EC3A19171D4203D700F6F193 /* VPImageCropperViewController.m */,
+			);
+			path = VPImageCropper;
+			sourceTree = "<group>";
+		};
 		EC7A92C91D1A6972009A29A4 = {
 			isa = PBXGroup;
 			children = (
 				EC7A92D41D1A6972009A29A4 /* ParallelWorld */,
 				EC7A92D31D1A6972009A29A4 /* Products */,
+				83A75007FE0ED413B164DA9D /* Pods */,
+				D5D8CFC2D77CC2C2F60A556D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,25 +227,139 @@
 		EC7A92D41D1A6972009A29A4 /* ParallelWorld */ = {
 			isa = PBXGroup;
 			children = (
-				EC7A92D81D1A6972009A29A4 /* AppDelegate.h */,
-				EC7A92D91D1A6972009A29A4 /* AppDelegate.m */,
-				EC7A92DB1D1A6972009A29A4 /* ViewController.h */,
-				EC7A92DC1D1A6972009A29A4 /* ViewController.m */,
-				EC7A92DE1D1A6972009A29A4 /* Main.storyboard */,
 				EC7A92E11D1A6972009A29A4 /* Assets.xcassets */,
-				EC7A92E31D1A6972009A29A4 /* LaunchScreen.storyboard */,
-				EC7A92E61D1A6972009A29A4 /* Info.plist */,
-				EC7A92D51D1A6972009A29A4 /* Supporting Files */,
+				EC7A931A1D1A82EF009A29A4 /* Base.lproj */,
+				EC7A92FB1D1A7BA3009A29A4 /* Classes */,
+				EC3A19101D42028500F6F193 /* ThirdSDK */,
+				EC7A93131D1A7FC6009A29A4 /* Supporting Files */,
 			);
 			path = ParallelWorld;
 			sourceTree = "<group>";
 		};
-		EC7A92D51D1A6972009A29A4 /* Supporting Files */ = {
+		EC7A92FB1D1A7BA3009A29A4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				EC7A92D61D1A6972009A29A4 /* main.m */,
+				EC7A93291D1A83FA009A29A4 /* Appdelegate */,
+				EC7A93391D1A841C009A29A4 /* Controllers */,
+				EC7A932C1D1A83FA009A29A4 /* Managers */,
+				EC7A93311D1A83FA009A29A4 /* Models */,
+				EC7A93321D1A83FA009A29A4 /* MyLibrary */,
+				EC7A93351D1A83FA009A29A4 /* PUtils */,
+				EC7A933E1D1A879B009A29A4 /* Test */,
 			);
-			name = "Supporting Files";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EC7A93131D1A7FC6009A29A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A92E61D1A6972009A29A4 /* Info.plist */,
+				EC77A7661D3DFB7D0042FA2E /* main.m */,
+				EC77A7671D3DFB7D0042FA2E /* PWDefinition.h */,
+				EC77A7681D3DFB7D0042FA2E /* PWMacros.h */,
+				EC77A7691D3DFB7D0042FA2E /* Prefix.pch */,
+				EC77A76A1D3DFB7D0042FA2E /* PWValueType.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC7A931A1D1A82EF009A29A4 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A931B1D1A82EF009A29A4 /* LaunchScreen.storyboard */,
+				EC7A931D1D1A82EF009A29A4 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		EC7A93291D1A83FA009A29A4 /* Appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A932A1D1A83FA009A29A4 /* AppDelegate.h */,
+				EC7A932B1D1A83FA009A29A4 /* AppDelegate.m */,
+			);
+			path = Appdelegate;
+			sourceTree = "<group>";
+		};
+		EC7A932C1D1A83FA009A29A4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A932D1D1A83FA009A29A4 /* PWBaseDataManager.h */,
+				EC7A932E1D1A83FA009A29A4 /* PWBaseDataManager.m */,
+				EC7A932F1D1A83FA009A29A4 /* PWLoginManager.h */,
+				EC7A93301D1A83FA009A29A4 /* PWLoginManager.m */,
+				EC77A7631D3DF8E20042FA2E /* PWNetworkManager.h */,
+				EC77A7641D3DF8E20042FA2E /* PWNetworkManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EC7A93311D1A83FA009A29A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A191C1D42120E00F6F193 /* PWForm.h */,
+				EC3A191D1D42122800F6F193 /* PWBaseForm.h */,
+				EC3A191E1D42122800F6F193 /* PWBaseForm.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC7A93321D1A83FA009A29A4 /* MyLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A93331D1A83FA009A29A4 /* Category */,
+				EC7A93341D1A83FA009A29A4 /* Components */,
+			);
+			path = MyLibrary;
+			sourceTree = "<group>";
+		};
+		EC7A93331D1A83FA009A29A4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		EC7A93341D1A83FA009A29A4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EC7A93351D1A83FA009A29A4 /* PUtils */ = {
+			isa = PBXGroup;
+			children = (
+				EC3A190C1D41FF4800F6F193 /* PUtils.h */,
+				EC3A190D1D41FF4800F6F193 /* PUtils.m */,
+			);
+			path = PUtils;
+			sourceTree = "<group>";
+		};
+		EC7A93391D1A841C009A29A4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A933A1D1A841C009A29A4 /* Home */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EC7A933A1D1A841C009A29A4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A933B1D1A841C009A29A4 /* ViewController.h */,
+				EC7A933C1D1A841C009A29A4 /* ViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EC7A933E1D1A879B009A29A4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				EC0413511D20CB2400440A78 /* WebViewTest */,
+				EC0413501D20CB0200440A78 /* CGText */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +369,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7A92E91D1A6972009A29A4 /* Build configuration list for PBXNativeTarget "ParallelWorld" */;
 			buildPhases = (
+				127700B570EF56B5C3D48FFC /* [CP] Check Pods Manifest.lock */,
 				EC7A92CE1D1A6972009A29A4 /* Sources */,
 				EC7A92CF1D1A6972009A29A4 /* Frameworks */,
 				EC7A92D01D1A6972009A29A4 /* Resources */,
+				84A2F54BFC8C3EBF4F1A5FF4 /* [CP] Embed Pods Frameworks */,
+				94A1DDB772DB30DF75E23D8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,42 +422,101 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC7A92E51D1A6972009A29A4 /* LaunchScreen.storyboard in Resources */,
+				EC7A93201D1A82EF009A29A4 /* Main.storyboard in Resources */,
+				EC7A931F1D1A82EF009A29A4 /* LaunchScreen.storyboard in Resources */,
 				EC7A92E21D1A6972009A29A4 /* Assets.xcassets in Resources */,
-				EC7A92E01D1A6972009A29A4 /* Main.storyboard in Resources */,
+				EC410F0F1D1D1DCF00D5A27B /* SnowView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		127700B570EF56B5C3D48FFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84A2F54BFC8C3EBF4F1A5FF4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParallelWorld/Pods-ParallelWorld-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94A1DDB772DB30DF75E23D8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParallelWorld/Pods-ParallelWorld-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC7A92CE1D1A6972009A29A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC7A92DD1D1A6972009A29A4 /* ViewController.m in Sources */,
-				EC7A92DA1D1A6972009A29A4 /* AppDelegate.m in Sources */,
-				EC7A92D71D1A6972009A29A4 /* main.m in Sources */,
+				EC7A93381D1A83FA009A29A4 /* PWLoginManager.m in Sources */,
+				EC7A93371D1A83FA009A29A4 /* PWBaseDataManager.m in Sources */,
+				EC7A93411D1A8B0F009A29A4 /* LineView.m in Sources */,
+				EC3A19141D42028500F6F193 /* RegexKitLite.m in Sources */,
+				EC7A93361D1A83FA009A29A4 /* AppDelegate.m in Sources */,
+				EC3A190E1D41FF4800F6F193 /* PUtils.m in Sources */,
+				EC0413571D20CBAE00440A78 /* WKWebViewTest.m in Sources */,
+				EC7A933D1D1A841C009A29A4 /* ViewController.m in Sources */,
+				EC3A19181D4203D700F6F193 /* VPImageCropperViewController.m in Sources */,
+				EC3A191F1D42122800F6F193 /* PWBaseForm.m in Sources */,
+				EC410F0D1D1D1A2800D5A27B /* SnowView.m in Sources */,
+				EC77A76B1D3DFB7D0042FA2E /* main.m in Sources */,
+				EC77A7651D3DF8E20042FA2E /* PWNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EC7A92DE1D1A6972009A29A4 /* Main.storyboard */ = {
+		EC7A931B1D1A82EF009A29A4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC7A92DF1D1A6972009A29A4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EC7A92E31D1A6972009A29A4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC7A92E41D1A6972009A29A4 /* Base */,
+				EC7A931C1D1A82EF009A29A4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EC7A931D1D1A82EF009A29A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC7A931E1D1A82EF009A29A4 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,23 +608,121 @@
 		};
 		EC7A92EA1D1A6972009A29A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 913A463AEB911B3FC128584A /* Pods-ParallelWorld.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/ParallelWorld/Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_USE_INDIRECT_FUNCTION_CALLS = NO;
 				INFOPLIST_FILE = ParallelWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"IMYWebView\"",
+					"-l\"JRSwizzle\"",
+					"-l\"LXActivityView\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"OpenShare\"",
+					"-l\"SDWebImage\"",
+					"-l\"iConsole\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					CoreMotion,
+					"-weak-lSystem",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParallelCity.ParallelWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 5.3f1;
+				UNITY_SCRIPTING_BACKEND = il2cpp;
 			};
 			name = Debug;
 		};
 		EC7A92EB1D1A6972009A29A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE6C6D9C3F07353A89D2FFC /* Pods-ParallelWorld.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/ParallelWorld/Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				GCC_USE_INDIRECT_FUNCTION_CALLS = NO;
 				INFOPLIST_FILE = ParallelWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"IMYWebView\"",
+					"-l\"JRSwizzle\"",
+					"-l\"LXActivityView\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"OpenShare\"",
+					"-l\"SDWebImage\"",
+					"-l\"iConsole\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-weak_framework",
+					CoreMotion,
+					"-weak-lSystem",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParallelCity.ParallelWorld;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 5.3f1;
+				UNITY_SCRIPTING_BACKEND = il2cpp;
 			};
 			name = Release;
 		};
@@ -302,6 +745,7 @@
 				EC7A92EB1D1A6972009A29A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

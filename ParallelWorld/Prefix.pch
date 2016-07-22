@@ -1,0 +1,29 @@
+//
+//  Prefix.pch
+//  ParallelWorld
+//
+//  Created by Joe.Pen on 6/22/16.
+//  Copyright © 2016 Joe.Pen. All rights reserved.
+//
+
+#ifndef Prefix_pch
+#define Prefix_pch
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "PWMacros.h"
+#import "PWDefinition.h"
+#import "PWValueType.h"
+#import "PUtils.h"
+#import "PWForm.h"
+
+
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "RegexKitLite.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Prefix_pch */

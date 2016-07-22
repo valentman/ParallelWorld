@@ -1,0 +1,55 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - iConsole (1.5.3)
+  - IMYWebView (0.5)
+  - JRSwizzle (1.0)
+  - LXActivityView (1.0.0)
+  - MBProgressHUD (0.9.2)
+  - MJExtension (3.0.10)
+  - MJRefresh (3.1.9)
+  - OpenShare (0.0.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - iConsole (~> 1.5.3)
+  - IMYWebView (~> 0.5)
+  - JRSwizzle (~> 1.0)
+  - LXActivityView (~> 1.0.0)
+  - MBProgressHUD (~> 0.9.2)
+  - MJExtension (~> 3.0.10)
+  - MJRefresh (~> 3.1.9)
+  - OpenShare (~> 0.0.1)
+  - SDWebImage (~> 3.8.1)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  iConsole: 823d9b14ac90f0a2a4fc9bf6a973a03ba9c4c7eb
+  IMYWebView: 55012897f586e663a6d6416bba0b49f04119ea31
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  LXActivityView: 7a94028d33c87059c9ac9793817a830dacbe362a
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 405248a63d2b64f33317584e9d4f813875c5b67e
+
+COCOAPODS: 1.0.1
