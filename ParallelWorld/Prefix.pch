@@ -17,6 +17,7 @@
 #import "PWValueType.h"
 #import "PUtils.h"
 #import "PWForm.h"
+#import "iOSMD5.h"
 
 
 #import "AFNetworking.h"

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "iConsole.h"
+#import "JRSwizzle.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //-------------------8.字典描述分类替换----------------
+    [NSDictionary jr_swizzleMethod:@selector(description) withMethod:@selector(my_description) error:nil];
     return YES;
 }
 

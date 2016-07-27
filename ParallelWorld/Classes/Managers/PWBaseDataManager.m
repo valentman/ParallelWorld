@@ -14,10 +14,10 @@
 singleton_implementation(PWBaseDataManager)
 
 - (BOOL)showAlertView:(id)info{
-    NSString* msgKey = [[info valueForKey:@"code"] stringValue];
-    if (![msgKey isEqual:@"0"]) {
+    NSString* msgKey = [[info valueForKey:@"status"] stringValue];
+    if (![msgKey isEqual:@"1"]) {
         //        [[FSErrorCodeManager sharedFSErrorCodeManager] ShowErrorInfoWithErrorCode: stringValue]];
-        [PUtils tipWithText:[info valueForKey:@"message"] andView:nil];
+        [PUtils tipWithText:[info valueForKey:@"msg"] andView:nil];
         return NO;
     }
     DLog(@"%@",msgKey);
@@ -34,9 +34,8 @@ singleton_implementation(PWBaseDataManager)
         {
             _success(json);
         }
-        else
+        else if (_fail)
         {
-            if (_fail)
                 _fail();
         }
     };
@@ -53,19 +52,20 @@ singleton_implementation(PWBaseDataManager)
 }
 
 
-- (void)generlUploadImage:(NSArray*)_imageAry
-                    param:(NSDictionary*)_params
-             andServerAPI:(NSString*)_url
-                 progress:(ProgressBlockHandler)_progress
-                  success:(SuccessBlockHandler)_success
-                  failure:(FailureBlockHandler)_fail
+
+- (void)uploadImages:(NSArray*)_imageAry
+               param:(NSDictionary*)_params
+            progress:(ProgressBlockHandler)_progress
+             success:(SuccessBlockHandler)_success
+             failure:(FailureBlockHandler)_fail
 {
     SuccessBlockHandler successBlock = ^(id json){
         if ([self showAlertView:json])
         {
             _success(json);
         }
-        if (_fail) {
+        else if (_fail)
+        {
             _fail();
         }
     };
@@ -81,27 +81,45 @@ singleton_implementation(PWBaseDataManager)
     
     [PWNetworkInstance uploadData:_imageAry
                         parameter:_params
-                            toURL:_url
+                            toURL:@"http://static.chinacloudapp.cn/upload.php"
                          progress:_progress
                            sccess:successBlock
                           failure:failBlock];
 }
 
 
-- (void)showHomePage:(NSDictionary*)_params
-             success:(SuccessBlockHandler)_success
-             failure:(FailureBlockHandler)_fail
-{
-    [self generalPost:nil success:_success fail:_fail andServerAPI:@"http://119.29.135.211/Customer/customerInfo"];
-}
 
-- (void)uploadImages:(NSArray*)_imageAry
-               param:(NSDictionary*)_params
-            progress:(ProgressBlockHandler)_progress
-             success:(SuccessBlockHandler)_success
-             failure:(FailureBlockHandler)_fail
+- (void)uploadVoice:(NSData*)_voiceData
+              param:(NSDictionary*)_params
+           progress:(ProgressBlockHandler)_progress
+            success:(SuccessBlockHandler)_success
+            failure:(FailureBlockHandler)_fail
 {
-    [self generlUploadImage:_imageAry param:_params andServerAPI:@" http://static.chinacloudapp.cn/" progress:_progress success:_success failure:_fail];
+    SuccessBlockHandler successBlock = ^(id json){
+        if ([self showAlertView:json])
+        {
+            _success(json);
+        }
+        else if (_fail)
+        {
+            _fail();
+        }
+    };
+    
+    FailureBlockHandler failBlock = ^(){
+        if (_fail) {
+            _fail();
+        }
+    };
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValuesForKeysWithDictionary:_params];
+    
+    [PWNetworkInstance uploadVoice:_voiceData
+                        parameters:params
+                             toURL:@"http://static.chinacloudapp.cn/upload.php"
+                          progress:_progress
+                           success:successBlock
+                           failure:failBlock];
 }
-
 @end

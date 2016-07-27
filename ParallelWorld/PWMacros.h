@@ -101,6 +101,9 @@ CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].si
 #define SAFE_DELETE(P) if(P) { [P release], P = nil; }
 #define SAFE_RELEASE(x) [x release];x=nil
 
+#define weakify(var)   __weak typeof(var) weakSelf = var;
+#define strongify(var) __strong typeof(var) strongSelf = var;
+
 
 
 

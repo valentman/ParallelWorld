@@ -7,65 +7,67 @@
 //
 
 #import "ViewController.h"
-#import "LineView.h"
-#import "SnowView.h"
-#import "IMYWebView.h"
-#import "VPImageCropperViewController.h"
+#import "ZLPhotoActionSheet.h"
 #import "PWBaseDataManager.h"
+#import "PWNetworkManager.h"
+#import "AWVoiceRecorder.h"
 
 @interface ViewController ()
-<
-UIActionSheetDelegate,
-UINavigationControllerDelegate,
-UIImagePickerControllerDelegate,
-VPImageCropperDelegate
->
-@property(strong,nonatomic)IMYWebView* webView;
-@property (weak, nonatomic) IBOutlet LineView *circleView;
-- (IBAction)valueChange:(id)sender;
+{
+    __block UIProgressView* progressView;
+    AWVoiceRecorder* recorder;
+    
+    NSString *voiceFilePath;
+}
+@property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
+@property (nonatomic, strong) NSArray *arrDataSources;
+@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 
-- (IBAction)uploadAction:(id)sender;
+- (IBAction)uploadImageAction:(id)sender;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    progressView = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
+    progressView.center = self.view.center;
+    [self.view addSubview:progressView];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setProgressView:) name:@"progress" object:nil];
     
-    // Do any additional setup after loading the view, typically from a nib.
+    recorder = [[AWVoiceRecorder alloc]init];
+    voiceFilePath = [DocumentsDirectory stringByAppendingPathComponent:@"testaudio.m4a"];
+    
+    [self.recordBtn addTarget:self action:@selector(startRecordvoice:) forControlEvents:UIControlEventTouchDown];
+    [self.recordBtn addTarget:self action:@selector(stopRecordvoice:) forControlEvents:UIControlEventTouchUpInside];
+}
 
 
-//    self.webView = [[IMYWebView alloc] initWithFrame:self.view.bounds];
-//    self.webView.backgroundColor = GRAYCOLOR;
-//    [self.view addSubview:_webView];
-//    
-//    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+- (void)startRecordvoice:(id)sender
+{
     
-//    CGSize size = CGSizeMake(PJ_SCREEN_WIDTH, 35);
-//    UIGraphicsBeginImageContext(size);
-//    
-//    CGContextRef ctx  = UIGraphicsGetCurrentContext();
-//    CGFloat height = 35;
-//    CGContextAddRect(ctx, CGRectMake(0, 0, PJ_SCREEN_WIDTH, height));
-//    [WHITECOLOR set];
-//    CGContextFillPath(ctx);
-//    
-//    CGFloat lineWidth = 2;
-//    CGFloat lineY = height - lineWidth;
-//    CGFloat lineX = 0;
-//    CGContextMoveToPoint(ctx, lineX, lineY);
-//    CGContextAddLineToPoint(ctx, 320, lineY);
-//    [[UIColor blackColor] set];
-//    CGContextStrokePath(ctx);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isExists = [fileManager fileExistsAtPath:voiceFilePath];
+    if (!isExists) {
+        [fileManager createFileAtPath:voiceFilePath contents:nil attributes:nil];
+    }
     
-//    UIImage *image=[UIImage imageNamed:@"share_icon"];
-//    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIColor *color=[UIColor colorWithPatternImage:image];
-//    self.view.backgroundColor=color;
-//    SnowView* snowView = [(NSArray*)[[NSBundle mainBundle]loadNibNamed:@"SnowView" owner:self options:nil] objectAtIndex:0];
-//    snowView.frame = self.view.bounds;
-//    snowView.backgroundColor = WHITECOLOR;
-//    [self.view addSubview:snowView];
+    [recorder prepareRecordingWithPath:voiceFilePath prepareRecorderCompletion:^BOOL{
+        [recorder startRecordingWithStartRecorderCompletion:^{
+            DLog(@"开始录音了");
+        }];
+        return YES;
+    }];
+}
+
+- (void)stopRecordvoice:(id)sender
+{
+    weakify(self);
+    [recorder stopRecordingWithStopRecorderCompletion:^{
+        DLog(@"录音结束,时长：%@",recorder.recordDuration);
+        [weakSelf uploadVoiceToServer];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,125 +75,105 @@ VPImageCropperDelegate
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)valueChange:(UISlider*)sender
+
+- (void)uploadVoiceToServer
 {
-    //当值改变的时候，把值传递给view,改变圆的半径
-    NSLog(@"%f",sender.value);
-    //把sender的值传递给自定义view，设置圆的半径
-    self.circleView.radius=sender.value;
-}
-
-- (IBAction)uploadAction:(id)sender
-{
-    UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:@"取消"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"拍照", @"从相册中选取", nil];
-    [choiceSheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // 拍照
-        if ([PUtils isCameraAvailable] && [PUtils doesCameraSupportTakingPhotos]) {
-            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-            controller.sourceType = UIImagePickerControllerSourceTypeCamera;
-            if ([PUtils isFrontCameraAvailable]) {
-                controller.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-            }
-            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
-            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
-            controller.mediaTypes = mediaTypes;
-            controller.delegate = self;
-            [self presentViewController:controller
-                               animated:YES
-                             completion:^(void){
-                                 NSLog(@"Picker View Controller is presented");
-                             }];
-        }
-        
-    } else if (buttonIndex == 1) {
-        // 从相册中选取
-        if ([PUtils isPhotoLibraryAvailable]) {
-            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-            controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            NSMutableArray *mediaTypes = [[NSMutableArray alloc] init];
-            [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
-            controller.mediaTypes = mediaTypes;
-            controller.delegate = self;
-            [self presentViewController:controller
-                               animated:YES
-                             completion:^(void){
-                                 NSLog(@"Picker View Controller is presented");
-                             }];
-        }
-    }
-}
-
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissViewControllerAnimated:YES completion:^() {
-        UIImage *portraitImg = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        portraitImg = [PUtils imageByScalingToMaxSize:portraitImg];
-        // 裁剪
-        VPImageCropperViewController *imgEditorVC = [[VPImageCropperViewController alloc] initWithImage:portraitImg cropFrame:CGRectMake(0, 100.0f, self.view.frame.size.width, self.view.frame.size.width) limitScaleRatio:3.0];
-        imgEditorVC.delegate = self;
-        [self presentViewController:imgEditorVC animated:YES completion:^{
-            // TO DO
-        }];
-    }];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:^(){
-    }];
-}
-
-#pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-}
-
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSData* voiceData = [NSData dataWithContentsOfFile:voiceFilePath];
     
+    NSString* userid = @"2555";
+    
+
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    
+    NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
+    
+    NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
+    NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
+    NSDictionary* params = @{@"action":@"content",
+                             @"userid":@"2555",
+                             @"content":@"MTIz",
+                             @"format":@"amr",
+                             @"Utime":timeSp,
+                             @"sgin":md5Str};
+    
+    [PWBaseDataInstance uploadVoice:voiceData param:params progress:^(NSProgress *progress) {
+        DLog(@"上传进度：%f",progress.fractionCompleted);
+    } success:^(id json) {
+        DLog(@"上传成功：%@",[json description]);
+    } failure:^{
+        DLog(@"上传失败");
+    }];
 }
 
-#pragma mark VPImageCropperDelegate
-- (void)imageCropper:(VPImageCropperViewController *)cropperViewController didFinished:(UIImage *)editedImage
+
+- (IBAction)uploadImageAction:(id)sender
 {
-//    headview.image = editedImage;
-//    isFromServer = NO;
-    [cropperViewController dismissViewControllerAnimated:YES completion:^{
-        // TO DO
-        NSString *path;
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        path = paths[0];
-        BOOL isDir;
-        if(![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir]) {
-            if(!isDir) {
-                NSError *error;
-                [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:&error];
-                NSLog(@"%@",error);
-            }
-        }
+    
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    
+    
+    ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+    //设置照片最大选择数
+    actionSheet.maxSelectCount = 5;
+    //设置照片最大预览数
+    actionSheet.maxPreviewCount = 20;
+    weakify(self);
+    NSString* userid = @"2555";
+    NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
+    NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
+    NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
+    NSDictionary* params = @{@"action":@"content",
+                             @"userid":@"2555",
+                             @"content":@"MTIz",
+                             @"format":@"jpeg",
+                             @"Utime":timeSp,
+                             @"sgin":md5Str};
+    
+    [actionSheet showWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
+        strongify(weakSelf);
+        strongSelf.arrDataSources = selectPhotos;
+        strongSelf.lastSelectMoldels = selectPhotoModels;
         
-//        path = [path stringByAppendingPathComponent:@"head.jpg"];
-//        NSData *imageData = UIImageJPEGRepresentation(editedImage,0.5);
         
-        [PWBaseDataInstance uploadImages:@[editedImage] param:nil progress:nil success:^(id json) {
-            NSLog(@"%@",[json description]);
+        
+        [PWBaseDataInstance uploadImages:self.arrDataSources param:params progress:^(NSProgress *progress){
+            float pro = ((float)progress.completedUnitCount/progress.totalUnitCount);
+            [progress addObserver:self forKeyPath:@"fractionCompleted" options:NSKeyValueObservingOptionNew context:nil];
+            DLog(@"total:%f,upload:%f,%f %%",progress.totalUnitCount,progress.completedUnitCount,progress.fractionCompleted*100);
+        } success:^(id json) {
+            DLog(@"%@",[json description]);
         } failure:^{
-            
+            DLog(@"上传失败");
         }];
-
-    
         
+        
+        NSLog(@"%@", selectPhotos);
     }];
+    
 }
 
-- (void)imageCropperDidCancel:(VPImageCropperViewController *)cropperViewController {
-    [cropperViewController dismissViewControllerAnimated:YES completion:^{
-    }];
+
+
+- (void)setProgressView:(NSNotification*)notif
+{
+    NSDictionary* dict = notif.userInfo;
+    float pro = [[dict valueForKey:@"pro"] floatValue];
+    DLog(@"%f",pro);
+    [progressView setProgress:pro];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+
+{
+    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]])
+    {
+        NSProgress *progress = (NSProgress *)object;
+    
+        progressView.progress = progress.fractionCompleted;
+    }
+    
 }
 
 @end

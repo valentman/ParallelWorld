@@ -106,7 +106,8 @@ const float IMY_NJKFinalProgressValue = 0.9f;
     BOOL isFragmentJump = NO;
     if (request.URL.fragment) {
         NSString *nonFragmentURL = [self getNonFragmentStringWithURL:request.URL];
-        isFragmentJump = [nonFragmentURL isEqualToString:webView.request.URL.absoluteString];
+        NSString *mainFragmentURL = [self getNonFragmentStringWithURL:webView.request.URL];
+        isFragmentJump = [nonFragmentURL isEqualToString:mainFragmentURL];
     }
 
     NSString* refererURL = [request valueForHTTPHeaderField:@"Referer"];
@@ -151,10 +152,10 @@ const float IMY_NJKFinalProgressValue = 0.9f;
     }
     
     BOOL isNotRedirect = YES;
-    if (_currentURL && _currentURL.fragment) {
+    {
         NSString *nonFragmentCurrentURL = [self getNonFragmentStringWithURL:_currentURL];
         NSString *nonFragmentMainDocumentURL = [self getNonFragmentStringWithURL:webView.request.mainDocumentURL];
-        isNotRedirect = _currentURL && [nonFragmentCurrentURL isEqual:nonFragmentMainDocumentURL];
+        isNotRedirect = (_currentURL && [nonFragmentCurrentURL isEqualToString:nonFragmentMainDocumentURL]);
     }
     BOOL complete = [readyState isEqualToString:@"complete"];
     if (complete && isNotRedirect) {
@@ -181,10 +182,10 @@ const float IMY_NJKFinalProgressValue = 0.9f;
     }
     
     BOOL isNotRedirect = YES;
-    if (_currentURL && _currentURL.fragment) {
+    {
         NSString *nonFragmentCurrentURL = [self getNonFragmentStringWithURL:_currentURL];
         NSString *nonFragmentMainDocumentURL = [self getNonFragmentStringWithURL:webView.request.mainDocumentURL];
-        isNotRedirect = _currentURL && [nonFragmentCurrentURL isEqual:nonFragmentMainDocumentURL];
+        isNotRedirect = (_currentURL && [nonFragmentCurrentURL isEqualToString:nonFragmentMainDocumentURL]);
     }
     BOOL complete = [readyState isEqualToString:@"complete"];
     if (complete && isNotRedirect) {

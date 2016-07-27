@@ -20,28 +20,22 @@
 @implementation WKWebViewTest
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    [self initViews];
+}
+
+- (void)initViews
+{
+    self.webView = [[IMYWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:_webView];
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     
-    [PWBaseDataInstance showHomePage:nil success:^(id json) {
-        NSLog(@"%@",[json description]);
-    } failure:^{
-        
-    }];
+    self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    self.progressView.frame = CGRectMake(0, 64, PJ_SCREEN_WIDTH, 2);
+    [self.view addSubview:self.progressView];
     
-//    self.webView = [[IMYWebView alloc] initWithFrame:self.view.bounds];
-//    self.webView.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
-//    [self.view addSubview:_webView];
-//    
-//    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
-//    
-//    self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-//    self.progressView.frame = CGRectMake(0, 64, PJ_SCREEN_WIDTH, 2);
-//    [self.view addSubview:self.progressView];
-//    
-//    NSURLRequest* urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://blog.sina.com.cn/s/blog_147d0371c0102w0ol.html"]];
-//    [self.webView loadRequest:urlRequest];
-//    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tmall.com"]]];
 }
 
 - (void)didReceiveMemoryWarning {

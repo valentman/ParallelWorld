@@ -12,13 +12,17 @@
 
 singleton_interface(PWBaseDataManager);
 
-- (void)showHomePage:(NSDictionary*)_params
-             success:(SuccessBlockHandler)_success
-             failure:(FailureBlockHandler)_fail;
 
 - (void)uploadImages:(NSArray*)_imageAry
                param:(NSDictionary*)_params
             progress:(ProgressBlockHandler)_progress
              success:(SuccessBlockHandler)_success
              failure:(FailureBlockHandler)_fail;
+
+- (void)uploadVoice:(NSData*)_voiceData
+              param:(NSDictionary*)_params
+           progress:(ProgressBlockHandler)_progress
+            success:(SuccessBlockHandler)_success
+            failure:(FailureBlockHandler)_fail;
+
 @end

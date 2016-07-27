@@ -15,16 +15,17 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - iConsole (1.5.3)
-  - IMYWebView (0.5)
+  - IMYWebView (0.7)
   - JRSwizzle (1.0)
   - LXActivityView (1.0.0)
   - MBProgressHUD (0.9.2)
-  - MJExtension (3.0.10)
-  - MJRefresh (3.1.9)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
   - OpenShare (0.0.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - ZLPhotoBrowser (1.0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -37,19 +38,21 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.9)
   - OpenShare (~> 0.0.1)
   - SDWebImage (~> 3.8.1)
+  - ZLPhotoBrowser (~> 1.0.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   iConsole: 823d9b14ac90f0a2a4fc9bf6a973a03ba9c4c7eb
-  IMYWebView: 55012897f586e663a6d6416bba0b49f04119ea31
+  IMYWebView: bbc62d2e0966c5d6bec3e9e7ae9cf9ad52eb22f3
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   LXActivityView: 7a94028d33c87059c9ac9793817a830dacbe362a
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
-  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  ZLPhotoBrowser: f0c01ea435582fb33fca56feccac40bdcdeb799e
 
-PODFILE CHECKSUM: 405248a63d2b64f33317584e9d4f813875c5b67e
+PODFILE CHECKSUM: 62ce94b77f007ce58714bf0a791e7013acef17fb
 
 COCOAPODS: 1.0.1

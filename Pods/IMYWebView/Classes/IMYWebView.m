@@ -73,6 +73,22 @@
     [self.realWebView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     [self addSubview:self.realWebView];
 }
+- (void)setDelegate:(id<IMYWebViewDelegate>)delegate
+{
+    _delegate = delegate;
+    if (_usingUIWebView) {
+        UIWebView* webView = self.realWebView;
+        webView.delegate = nil;
+        webView.delegate = self;
+    }
+    else {
+        WKWebView* webView = self.realWebView;
+        webView.UIDelegate = nil;
+        webView.navigationDelegate = nil;
+        webView.UIDelegate = self;
+        webView.navigationDelegate = self;
+    }
+}
 - (void)initWKWebView
 {
     WKWebViewConfiguration* configuration = [[NSClassFromString(@"WKWebViewConfiguration") alloc] init];
@@ -149,7 +165,6 @@
     if (self.originRequest == nil) {
         self.originRequest = webView.request;
     }
-
     [self callback_webViewDidFinishLoad];
 }
 - (void)webViewDidStartLoad:(UIWebView*)webView
@@ -169,7 +184,6 @@
 {
     self.estimatedProgress = progress;
 }
-
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView*)webView decidePolicyForNavigationAction:(WKNavigationAction*)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
