@@ -79,26 +79,12 @@
 - (void)uploadVoiceToServer
 {
     NSData* voiceData = [NSData dataWithContentsOfFile:voiceFilePath];
-    
-    NSString* userid = @"2555";
-    
 
-    NSDate *datenow = [NSDate date];
-    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
-    
-    NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
-    
-    NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
-    NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
-    NSDictionary* params = @{@"action":@"content",
-                             @"userid":@"2555",
-                             @"content":@"MTIz",
-                             @"format":@"amr",
-                             @"Utime":timeSp,
-                             @"sgin":md5Str};
+    NSDictionary* params = @{@"format":@"amr"};
     
     [PWBaseDataInstance uploadVoice:voiceData param:params progress:^(NSProgress *progress) {
         DLog(@"上传进度：%f",progress.fractionCompleted);
+        DLog(@"total:%lld,upload:%lld,%.f%%",progress.totalUnitCount,progress.completedUnitCount,progress.fractionCompleted*100);
     } success:^(id json) {
         DLog(@"上传成功：%@",[json description]);
     } failure:^{
@@ -109,51 +95,30 @@
 
 - (IBAction)uploadImageAction:(id)sender
 {
-    
-    NSDate *datenow = [NSDate date];
-    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
-    
-    
+
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
     //设置照片最大选择数
     actionSheet.maxSelectCount = 5;
     //设置照片最大预览数
     actionSheet.maxPreviewCount = 20;
-    weakify(self);
-    NSString* userid = @"2555";
-    NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
-    NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
-    NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
-    NSDictionary* params = @{@"action":@"content",
-                             @"userid":@"2555",
-                             @"content":@"MTIz",
-                             @"format":@"jpeg",
-                             @"Utime":timeSp,
-                             @"sgin":md5Str};
     
+    weakify(self);
+    NSDictionary* params = @{@"format":@"jpeg"};
     [actionSheet showWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
         strongify(weakSelf);
         strongSelf.arrDataSources = selectPhotos;
         strongSelf.lastSelectMoldels = selectPhotoModels;
         
-        
-        
         [PWBaseDataInstance uploadImages:self.arrDataSources param:params progress:^(NSProgress *progress){
-            float pro = ((float)progress.completedUnitCount/progress.totalUnitCount);
             [progress addObserver:self forKeyPath:@"fractionCompleted" options:NSKeyValueObservingOptionNew context:nil];
-            DLog(@"total:%f,upload:%f,%f %%",progress.totalUnitCount,progress.completedUnitCount,progress.fractionCompleted*100);
+            DLog(@"desc:%@, total:%lld, upload:%lld",progress.localizedDescription,progress.totalUnitCount,progress.completedUnitCount);
         } success:^(id json) {
             DLog(@"%@",[json description]);
         } failure:^{
             DLog(@"上传失败");
         }];
-        
-        
-        NSLog(@"%@", selectPhotos);
     }];
-    
 }
-
 
 
 - (void)setProgressView:(NSNotification*)notif
@@ -163,6 +128,7 @@
     DLog(@"%f",pro);
     [progressView setProgress:pro];
 }
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 

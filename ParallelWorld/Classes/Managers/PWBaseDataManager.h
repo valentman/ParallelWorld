@@ -12,13 +12,30 @@
 
 singleton_interface(PWBaseDataManager);
 
-
+/**
+ *  图片上传接口
+ *
+ *  @param _imageAry 图片数组
+ *  @param _params   参数（如：图片格式）
+ *  @param _progress 进度回调
+ *  @param _success  成功回调
+ *  @param _fail     失败回调
+ */
 - (void)uploadImages:(NSArray*)_imageAry
                param:(NSDictionary*)_params
             progress:(ProgressBlockHandler)_progress
              success:(SuccessBlockHandler)_success
              failure:(FailureBlockHandler)_fail;
 
+/**
+ *  音频上传接口
+ *
+ *  @param _voiceData 音频数据（NSData*类型）
+ *  @param _params    参数（如：音频格式）
+ *  @param _progress  进度回调
+ *  @param _success   成功回调
+ *  @param _fail      失败回调
+ */
 - (void)uploadVoice:(NSData*)_voiceData
               param:(NSDictionary*)_params
            progress:(ProgressBlockHandler)_progress

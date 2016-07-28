@@ -36,7 +36,7 @@ singleton_implementation(PWNetworkManager)
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html", @"application/javascript", @"text/js", nil];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [manager POST:_urlStr parameters:_parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:ConnectString(kServerBaseAPI, _urlStr) parameters:_parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (_success) {
@@ -61,7 +61,7 @@ singleton_implementation(PWNetworkManager)
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html", @"application/javascript", @"text/js", nil];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [manager GET:_urlStr parameters:_parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:ConnectString(kServerBaseAPI, _urlStr) parameters:_parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (_success) {
@@ -82,7 +82,7 @@ singleton_implementation(PWNetworkManager)
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]];
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:ConnectString(kServerBaseAPI, _urlStr)]];
     NSURLSessionDownloadTask* downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         if (_progress) {
             _progress(downloadProgress);
@@ -109,13 +109,15 @@ singleton_implementation(PWNetworkManager)
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [manager POST:_urlStr parameters:_parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    
+    [manager POST:ConnectString(kServerBaseAPI, _urlStr) parameters:_parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         for(NSInteger i = 0; i < _uploadImageAry.count; i++)
         {
             UIImage* image = _uploadImageAry[i];
             
             NSData *imageData = UIImageJPEGRepresentation(image, 1);
+            DLog(@"daxiao: %ld",imageData.length);
             NSString * Name = [NSString stringWithFormat:@"%@%zi", ImageName, i+1];
             NSString * fileName = [NSString stringWithFormat:@"%@.jpeg", ImageFileName];
             
@@ -149,7 +151,7 @@ singleton_implementation(PWNetworkManager)
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [manager POST:_urlStr parameters:_param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:ConnectString(kServerBaseAPI, _urlStr) parameters:_param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";

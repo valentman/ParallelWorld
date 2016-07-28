@@ -9,15 +9,49 @@
 #import "PWBaseDataManager.h"
 #import "PWNetworkManager.h"
 
+
+
+@interface PWBaseDataManager ()
+{
+    NSMutableDictionary *_baseParams;
+}
+@end
+
 @implementation PWBaseDataManager
 
 singleton_implementation(PWBaseDataManager)
 
+- (id)init
+{
+    if (self == [super init])
+    {
+        [self initBaseParameters];
+        return self;
+    }
+    return nil;
+}
+
+- (void)initBaseParameters
+{
+    NSDate *datenow = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+    NSString* userid = @"2555";
+    NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
+    NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
+    NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
+    _baseParams = [@{@"action":@"content",
+                     @"userid":@"2555",
+                     @"content":@"MTIz",
+                     @"Utime":timeSp,
+                     @"sgin":md5Str
+                     } mutableCopy];
+}
+
 - (BOOL)showAlertView:(id)info{
     NSString* msgKey = [[info valueForKey:@"status"] stringValue];
     if (![msgKey isEqual:@"1"]) {
-        //        [[FSErrorCodeManager sharedFSErrorCodeManager] ShowErrorInfoWithErrorCode: stringValue]];
         [PUtils tipWithText:[info valueForKey:@"msg"] andView:nil];
+        DLog(@"%@",[info valueForKey:@"msg"]);
         return NO;
     }
     DLog(@"%@",msgKey);
@@ -75,13 +109,14 @@ singleton_implementation(PWBaseDataManager)
             _fail();
         }
     };
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
     [params setValuesForKeysWithDictionary:_params];
+    [params setValuesForKeysWithDictionary:_baseParams];
     
     [PWNetworkInstance uploadData:_imageAry
-                        parameter:_params
-                            toURL:@"http://static.chinacloudapp.cn/upload.php"
+                        parameter:params
+                            toURL:kServerUploadAPI
                          progress:_progress
                            sccess:successBlock
                           failure:failBlock];
@@ -114,10 +149,11 @@ singleton_implementation(PWBaseDataManager)
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValuesForKeysWithDictionary:_params];
+    [params setValuesForKeysWithDictionary:_baseParams];
     
     [PWNetworkInstance uploadVoice:_voiceData
                         parameters:params
-                             toURL:@"http://static.chinacloudapp.cn/upload.php"
+                             toURL:kServerUploadAPI
                           progress:_progress
                            success:successBlock
                            failure:failBlock];
