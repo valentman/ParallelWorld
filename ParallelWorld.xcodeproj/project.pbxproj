@@ -45,7 +45,6 @@
 		ECAF34411D46139100C30664 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAF34401D46139100C30664 /* Photos.framework */; };
 		ECAF34431D4613AD00C30664 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAF34421D4613AD00C30664 /* PhotosUI.framework */; };
 		ECBF8B4D1D476A2E0051A607 /* iOSMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBF8B4C1D476A2E0051A607 /* iOSMD5.m */; };
-		ECF38E561D473927009CDC2C /* PWUploadImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF38E551D473927009CDC2C /* PWUploadImageButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,8 +110,6 @@
 		ECAF34421D4613AD00C30664 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		ECBF8B4B1D476A2E0051A607 /* iOSMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSMD5.h; sourceTree = "<group>"; };
 		ECBF8B4C1D476A2E0051A607 /* iOSMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSMD5.m; sourceTree = "<group>"; };
-		ECF38E541D473927009CDC2C /* PWUploadImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWUploadImageButton.h; sourceTree = "<group>"; };
-		ECF38E551D473927009CDC2C /* PWUploadImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWUploadImageButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,8 +372,6 @@
 			children = (
 				EC7A933B1D1A841C009A29A4 /* ViewController.h */,
 				EC7A933C1D1A841C009A29A4 /* ViewController.m */,
-				ECF38E541D473927009CDC2C /* PWUploadImageButton.h */,
-				ECF38E551D473927009CDC2C /* PWUploadImageButton.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -521,7 +516,6 @@
 				EC3A190E1D41FF4800F6F193 /* PUtils.m in Sources */,
 				EC0413571D20CBAE00440A78 /* WKWebViewTest.m in Sources */,
 				ECBF8B4D1D476A2E0051A607 /* iOSMD5.m in Sources */,
-				ECF38E561D473927009CDC2C /* PWUploadImageButton.m in Sources */,
 				EC7A933D1D1A841C009A29A4 /* ViewController.m in Sources */,
 				EC3A19181D4203D700F6F193 /* VPImageCropperViewController.m in Sources */,
 				EC3A191F1D42122800F6F193 /* PWBaseForm.m in Sources */,
