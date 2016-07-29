@@ -15,6 +15,11 @@
 singleton_interface(PWNetworkManager)
 
 /**
+ *
+ */
+- (void)checkNetWorkStatus;
+
+/**
  *  Get Data From Specific URL By POST Method
  *
  */

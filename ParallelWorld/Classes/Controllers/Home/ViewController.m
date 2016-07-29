@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
 @property (nonatomic, strong) NSArray *arrDataSources;
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
+@property (weak, nonatomic) IBOutlet UITextField *addrTextField;
+@property (weak, nonatomic) IBOutlet UILabel *progresslabel;
 
 - (IBAction)uploadImageAction:(id)sender;
 @end
@@ -78,11 +80,10 @@
 
 - (void)uploadVoiceToServer
 {
+    [self.view endEditing:YES];
     NSData* voiceData = [NSData dataWithContentsOfFile:voiceFilePath];
-
-    NSDictionary* params = @{@"format":@"amr"};
     
-    [PWBaseDataInstance uploadVoice:voiceData param:params progress:^(NSProgress *progress) {
+    [PWBaseDataInstance uploadVoice:voiceData param:nil progress:^(NSProgress *progress) {
         DLog(@"上传进度：%f",progress.fractionCompleted);
         DLog(@"total:%lld,upload:%lld,%.f%%",progress.totalUnitCount,progress.completedUnitCount,progress.fractionCompleted*100);
     } success:^(id json) {
@@ -95,7 +96,7 @@
 
 - (IBAction)uploadImageAction:(id)sender
 {
-
+    [self.view endEditing:YES];
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
     //设置照片最大选择数
     actionSheet.maxSelectCount = 5;
@@ -103,13 +104,14 @@
     actionSheet.maxPreviewCount = 20;
     
     weakify(self);
-    NSDictionary* params = @{@"format":@"jpeg"};
+    
+    
     [actionSheet showWithSender:self animate:YES lastSelectPhotoModels:self.lastSelectMoldels completion:^(NSArray<UIImage *> * _Nonnull selectPhotos, NSArray<ZLSelectPhotoModel *> * _Nonnull selectPhotoModels) {
         strongify(weakSelf);
         strongSelf.arrDataSources = selectPhotos;
         strongSelf.lastSelectMoldels = selectPhotoModels;
         
-        [PWBaseDataInstance uploadImages:self.arrDataSources param:params progress:^(NSProgress *progress){
+        [PWBaseDataInstance uploadImages:self.arrDataSources param:nil progress:^(NSProgress *progress){
             [progress addObserver:self forKeyPath:@"fractionCompleted" options:NSKeyValueObservingOptionNew context:nil];
             DLog(@"desc:%@, total:%lld, upload:%lld",progress.localizedDescription,progress.totalUnitCount,progress.completedUnitCount);
         } success:^(id json) {
@@ -135,9 +137,9 @@
 {
     if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]])
     {
-        NSProgress *progress = (NSProgress *)object;
-    
-        progressView.progress = progress.fractionCompleted;
+//        NSProgress *progress = (NSProgress *)object;
+//        self.progresslabel.text = progress.localizedDescription;
+//        progressView.progress = progress.fractionCompleted;
     }
     
 }

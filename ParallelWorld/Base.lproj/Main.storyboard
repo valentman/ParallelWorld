@@ -51,17 +51,65 @@
                                 <gestureRecognizers/>
                                 <state key="normal" title="录音"/>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bl1-b5-3br">
+                                <rect key="frame" x="59" y="138" width="252" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CSd-CN-Jb6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="地址:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-a0-eZv">
+                                <rect key="frame" x="9" y="138" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Eto-28-QMI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进度:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGu-Oq-mQP">
+                                <rect key="frame" x="73" y="101" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="5Wt-Ai-3o7"/>
+                                    <constraint firstAttribute="height" constant="21" id="fbP-2a-FdZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpd-sZ-GWy">
+                                <rect key="frame" x="130" y="101" width="77" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8Li-EH-Joy"/>
+                                    <constraint firstAttribute="width" constant="77" id="hCW-KF-jHj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Jpd-sZ-GWy" firstAttribute="leading" secondItem="AGu-Oq-mQP" secondAttribute="trailing" constant="15" id="4mM-BU-Pom"/>
+                            <constraint firstItem="Bl1-b5-3br" firstAttribute="top" secondItem="FFs-ay-q3d" secondAttribute="bottom" constant="47" id="7wg-3h-j9K"/>
+                            <constraint firstAttribute="trailing" secondItem="Bl1-b5-3br" secondAttribute="trailing" constant="9" id="A3n-Pn-w1e"/>
                             <constraint firstItem="FFs-ay-q3d" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="Ue1-xC-fIi"/>
+                            <constraint firstItem="AGu-Oq-mQP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="81" id="XHW-0d-JEf"/>
+                            <constraint firstItem="Apj-a0-eZv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="118" id="m0b-2r-GIt"/>
+                            <constraint firstItem="Jpd-sZ-GWy" firstAttribute="centerY" secondItem="AGu-Oq-mQP" secondAttribute="centerY" id="neY-Hq-eAS"/>
+                            <constraint firstItem="Apj-a0-eZv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="9" id="ox3-u5-hXX"/>
+                            <constraint firstItem="Bl1-b5-3br" firstAttribute="leading" secondItem="Apj-a0-eZv" secondAttribute="trailing" constant="8" id="xm5-uz-52C"/>
+                            <constraint firstItem="AGu-Oq-mQP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="73" id="z1f-eb-oux"/>
                             <constraint firstItem="FFs-ay-q3d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zWd-sC-BzD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yBl-Xd-FmO"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addrTextField" destination="Bl1-b5-3br" id="bPA-Ou-b3f"/>
+                        <outlet property="progresslabel" destination="Jpd-sZ-GWy" id="t17-ug-QwL"/>
                         <outlet property="recordBtn" destination="Y7x-73-YjF" id="Tcp-Ce-aOd"/>
                     </connections>
                 </viewController>

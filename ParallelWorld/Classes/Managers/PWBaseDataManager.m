@@ -39,9 +39,7 @@ singleton_implementation(PWBaseDataManager)
     NSString* singkey = @"chengdujingheqianchengkejiyouxiangongsishiyijiafeichangniubidegongsi";
     NSString* originMdt = [NSString stringWithFormat:@"%@%@%@",userid,timeSp,singkey];
     NSString* md5Str = [[iOSMD5 md5:originMdt] uppercaseString];
-    _baseParams = [@{@"action":@"content",
-                     @"userid":@"2555",
-                     @"content":@"MTIz",
+    _baseParams = [@{@"userid":@"2555",
                      @"Utime":timeSp,
                      @"sgin":md5Str
                      } mutableCopy];
@@ -93,6 +91,22 @@ singleton_implementation(PWBaseDataManager)
              success:(SuccessBlockHandler)_success
              failure:(FailureBlockHandler)_fail
 {
+    [self uploadImages:_imageAry
+                 param:_params
+              progress:_progress
+               success:_success
+               failure:_fail
+                andUrl:kServerUploadAPI];
+}
+
+
+- (void)uploadImages:(NSArray*)_imageAry
+               param:(NSDictionary*)_params
+            progress:(ProgressBlockHandler)_progress
+             success:(SuccessBlockHandler)_success
+             failure:(FailureBlockHandler)_fail
+              andUrl:(NSString*)_url
+{
     SuccessBlockHandler successBlock = ^(id json){
         if ([self showAlertView:json])
         {
@@ -109,14 +123,15 @@ singleton_implementation(PWBaseDataManager)
             _fail();
         }
     };
-
+    
     NSMutableDictionary* params = [NSMutableDictionary dictionary];
     [params setValuesForKeysWithDictionary:_params];
+    [params setValue:@"files" forKey:@"action"];
     [params setValuesForKeysWithDictionary:_baseParams];
     
     [PWNetworkInstance uploadData:_imageAry
                         parameter:params
-                            toURL:kServerUploadAPI
+                            toURL:_url
                          progress:_progress
                            sccess:successBlock
                           failure:failBlock];
@@ -149,6 +164,7 @@ singleton_implementation(PWBaseDataManager)
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValuesForKeysWithDictionary:_params];
+    [params setValue:@"files" forKey:@"action"];
     [params setValuesForKeysWithDictionary:_baseParams];
     
     [PWNetworkInstance uploadVoice:_voiceData

@@ -24,6 +24,32 @@ singleton_implementation(PWNetworkManager)
     return nil;
 }
 
+- (void)checkNetWorkStatus
+{
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
+     {
+         switch (status)
+         {
+             case AFNetworkReachabilityStatusUnknown:
+                 DLog(@"未知网络状态");
+                 break;
+             case AFNetworkReachabilityStatusNotReachable:
+                 DLog(@"无网络");
+                 break;
+             case AFNetworkReachabilityStatusReachableViaWWAN:
+                 DLog(@"手机移动网络连接");
+                 break;
+             case AFNetworkReachabilityStatusReachableViaWiFi:
+                 DLog(@"Wifi连接");
+                 break;
+             default:
+                 break;
+         }
+     }];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
 
 //POST方法获取数据
 - (void)postDataWithUrl:(NSString*)_urlStr
@@ -61,7 +87,7 @@ singleton_implementation(PWNetworkManager)
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html", @"application/javascript", @"text/js", nil];
     _urlStr = [_urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    [manager GET:ConnectString(kServerBaseAPI, _urlStr) parameters:_parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:_urlStr parameters:_parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (_success) {
@@ -116,10 +142,9 @@ singleton_implementation(PWNetworkManager)
         {
             UIImage* image = _uploadImageAry[i];
             
-            NSData *imageData = UIImageJPEGRepresentation(image, 1);
-            DLog(@"daxiao: %ld",imageData.length);
+            NSData *imageData = UIImageJPEGRepresentation(image, 0);
             NSString * Name = [NSString stringWithFormat:@"%@%zi", ImageName, i+1];
-            NSString * fileName = [NSString stringWithFormat:@"%@.jpeg", ImageFileName];
+            NSString * fileName = [NSString stringWithFormat:@"%@%zi.jpeg", ImageFileName,i+1];
             
             [formData appendPartWithFileData:imageData name:Name fileName:fileName mimeType:@"image/jpeg"];
         }
@@ -135,6 +160,7 @@ singleton_implementation(PWNetworkManager)
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error) {
             DLog(@"Error::%@",[error description]);
+            [PUtils tipWithText:[error description] andView:nil];
             _fail();
         }
     }];
